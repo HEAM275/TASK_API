@@ -1,0 +1,68 @@
+# Entorno virtual
+env/
+venv/
+*.pyc
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Configuración IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.dblite
+*.coverage
+htmlcov/
+.coverage.*
+.pytest_cache/
+
+# Archivos sensibles
+.env
+.env.local
+.env.development
+.env.test
+secrets.sh
+
+# Django
+media/
+staticfiles/
+instance/
+celerybeat-schedule
+*.log
+*.pot
+*.mo
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Migraciones compiladas (si las usas en desarrollo)
+migrations/*.py
+migrations/__pycache__/
+
+# Paquetes descargados accidentalmente
+*.dist-info/
+*.egg-info/
+pip-selfcheck.json
+build/
+dist/
+*.egg
+*.so
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
