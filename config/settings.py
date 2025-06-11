@@ -45,7 +45,7 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.auth',
+    'apps.authentication',
     'apps.base',
     'apps.users',
     'apps.tasks',

@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.base.models import AuditableMixins
-from users.models import User
+from apps.users.models import User
 
 
 # Create your models here.

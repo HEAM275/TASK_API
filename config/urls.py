@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('apps.users.urls')),  # user viewset
-    path('task/', include('apps.task.urls')),  # user viewset
+    path('task/', include('apps.tasks.urls')),  # user viewset
 ]

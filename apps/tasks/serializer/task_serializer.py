@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from apps.base.serializer import AuditableSerializerMixin
-from models import Task
+from apps.tasks.models import Task
 
 
 class TaskListSerializer(AuditableSerializerMixin, serializers.ModelSerializer):
