@@ -17,7 +17,7 @@ class UserListSerializer(AuditableSerializerMixin, serializers.ModelSerializer):
 class UserCreateSerializer(AuditableSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'password', 'is_active',
+        fields = ['username', 'email', 'first_name', 'last_name', 'password', 'is_active',
                   'created_date', 'created_by', 'updated_date', 'updated_by']
         read_only_fields = ['created_date',
                             'created_by', 'updated_date', 'updated_by']

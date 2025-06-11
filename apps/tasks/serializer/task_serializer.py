@@ -6,24 +6,22 @@ from apps.tasks.models import Task
 class TaskListSerializer(AuditableSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = [
-            'id', 'title', 'description', 'status', 'is_active',
-            'created_date', 'created_by',
-            'updated_date', 'updated_by',
-            'deleted_date', 'deleted_by'
-        ]
+        fields = ['id', 'title', 'description', 'status', 'is_active', 'owner',
+                  'created_date', 'created_by',
+                  'updated_date', 'updated_by',
+                  'deleted_date', 'deleted_by'
+                  ]
         read_only_fields = ['__all__']
 
 
 class TaskCreateSerializer(AuditableSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = Task
-        field = [
-            'title', 'description', 'status', 'is_active',
-            'created_date', 'created_by',
-            'updated_date', 'updated_by',
-            'deleted_date', 'deleted_by'
-        ]
+        fields = ['title', 'description', 'status', 'is_active', 'owner',
+                  'created_date', 'created_by',
+                  'updated_date', 'updated_by',
+                  'deleted_date', 'deleted_by'
+                  ]
         read_only_fields = [
             'created_date', 'created_by',
             'updated_date', 'updated_by',
@@ -46,10 +44,9 @@ class TaskCreateSerializer(AuditableSerializerMixin, serializers.ModelSerializer
 class TaskUpdateSerializer(AuditableSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = [
-            'title', 'description', 'status', 'is_active',
-            'updated_date', 'updated_by'
-        ]
+        fields = ['title', 'description', 'status', 'is_active',
+                  'updated_date', 'updated_by'
+                  ]
         read_only_fields = [
             'updated_date', 'updated_by'
         ]

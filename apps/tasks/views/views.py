@@ -34,7 +34,7 @@ class TaskViewset(BaseModelViewSet):
     serializer_class = TaskListSerializer
 
     def get_queryset(self):
-        return super().get_queryset(owner=self.request.user)
+        return Task.objects.filter(owner=self.request.user)
 
     def get_serializer_class(self):
         if self.action in ['list', 'retrieve']:
@@ -98,13 +98,19 @@ class TaskViewset(BaseModelViewSet):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message': 'Task created successfuly', data: serializer.data},
+            return Response({'message': 'Task created successfuly', 'data': serializer.data},
                             status=status.HTTP_201_CREATED)
-        return Response({'message': 'task could not be created', error: serializer.errors},
+        return Response({'message': 'task could not be created', 'error': serializer.errors},
                         status=status.HTTP_400_BAD_REQUEST)
 
     swagger_auto_schema(
-
+        operation_description=_('Update a especific task'),
+        responses={
+            200: TaskListSerializer,
+            400: _('Invalid data'),
+            403: _('You dont have access to this information'),
+            404: _('Task not found')
+        }
     )
 
     def update(self, request, *args, **kwargs):
@@ -117,12 +123,18 @@ class TaskViewset(BaseModelViewSet):
             instance, data=request.data, partial=partial)
         if serializer.is_valid():
             serializer.save()
-            return Response({'message': 'Task successfuly updated', data: serializer.data},
+            return Response({'message': 'Task successfuly updated', 'data': serializer.data},
                             status=status.HTTP_200_OK)
 
     swagger_auto_schema(
         operation_description=_(
             ' Delete a task or deactivating a task and change status to archived'),
+        responses={
+            200: TaskListSerializer,
+            400: _('Invalid data'),
+            403: _('You dont have access to this information'),
+            404: _('Task not found')
+        }
     )
 
     def destroy(self, request, *args, **kwargs):
